@@ -13,73 +13,104 @@ layout: null
             --primary-color: #2c3e50;
             --accent-color: #3498db;
             --text-color: #333;
-            --bg-color: #f4f7f6;
+            --light-grey: #f4f7f6;
+            --border-color: #e0e0e0;
         }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--bg-color);
+            background-color: var(--light-grey);
             margin: 0;
             padding: 0;
         }
+
         .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 50px;
             background: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-radius: 8px;
         }
+
         header {
             text-align: center;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 30px;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
         }
+
         .profile-img {
-            width: 180px;
-            height: 180px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
-            border: 4px solid var(--accent-color);
+            border: 3px solid var(--accent-color);
             object-fit: cover;
             margin-bottom: 20px;
         }
-        h1 { margin: 10px 0; color: var(--primary-color); }
-        .subtitle { font-size: 1.2em; color: #666; font-weight: 300; }
-        .social-links { margin-top: 15px; }
+
+        h1 { margin: 10px 0; color: var(--primary-color); font-size: 2.5em; }
+        .subtitle { font-size: 1.2em; color: #7f8c8d; margin-bottom: 10px; }
+        .location { color: #95a5a6; font-size: 0.9em; margin-bottom: 20px; }
+
         .social-links a {
             color: var(--primary-color);
-            font-size: 1.5em;
-            margin: 0 10px;
+            font-size: 1.6em;
+            margin: 0 12px;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
+
         .social-links a:hover { color: var(--accent-color); }
+
+        section { margin-bottom: 45px; }
         
-        section { margin-bottom: 40px; }
         h2 {
-            border-left: 5px solid var(--accent-color);
-            padding-left: 15px;
             color: var(--primary-color);
+            font-size: 1.5em;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+            margin-bottom: 25px;
             text-transform: uppercase;
-            font-size: 1.3em;
+            letter-spacing: 1px;
         }
-        .item { margin-bottom: 20px; }
-        .item-title { font-weight: bold; font-size: 1.1em; display: flex; justify-content: space-between; }
-        .item-meta { font-style: italic; color: #777; font-size: 0.9em; }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+
+        .entry {
+            margin-bottom: 25px;
         }
-        .skill-category h3 { font-size: 1em; margin-bottom: 10px; color: var(--accent-color); }
-        .tag {
-            display: inline-block;
-            background: #eee;
-            padding: 4px 10px;
-            border-radius: 4px;
-            margin: 2px;
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .entry-title { font-weight: bold; font-size: 1.1em; color: var(--primary-color); }
+        .entry-date { color: var(--accent-color); font-weight: 600; font-size: 0.9em; }
+        .entry-org { font-style: italic; color: #555; margin-bottom: 5px; }
+        
+        ul { padding-left: 20px; margin-top: 5px; }
+        li { margin-bottom: 5px; }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 5px 12px;
+            border-radius: 20px;
             font-size: 0.85em;
+            border: 1px solid #cbd5e0;
+        }
+
+        @media (max-width: 600px) {
+            .entry-header { flex-direction: column; }
+            .container { padding: 20px; margin: 10px; }
         }
     </style>
 </head>
@@ -88,97 +119,126 @@ layout: null
 <div class="container">
     <header>
         <img src="assets/profile.jpg" alt="Federico Boscolo" class="profile-img">
-        [span_0](start_span)<h1>Federico Boscolo[span_0](end_span)</h1>
-        <div class="subtitle">Ph.D. [span_1](start_span)Candidate in Computer and Control Engineering[span_1](end_span)</div>
-        [span_2](start_span)<p>Politecnico di Torino, Italy[span_2](end_span)</p>
+        <h1>Federico Boscolo</h1>
+        <p class="subtitle">Ph.D. Candidate in Computer and Control Engineering</p>
+        <p class="location"><i class="fas fa-map-marker-alt"></i> Politecnico di Torino, Italy</p>
         
         <div class="social-links">
-            <a href="mailto:federico.boscolo@polito.it" title="Email"><i class="fas fa-envelope"></i></a>
-            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+            <a href="mailto:federico.boscolo@polito.it"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com/in/federicoboscolo" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="#" target="_blank"><i class="fas fa-graduation-cap"></i></a>
         </div>
     </header>
 
     <section id="about">
         <h2>About Me</h2>
         <p>
-            I am a Ph.D. [span_3](start_span)Candidate at Politecnico di Torino focusing on Computer Engineering[span_3](end_span). 
-            [span_4](start_span)My research involves developing novel algorithms and creating synthetic datasets for face and body pose recognition "in the wild," specifically applied to cockpit emergency access[span_4](end_span).
+            I am a Ph.D. Candidate at the Department of Control and Computer Engineering, Politecnico di Torino. 
+            My research focuses on developing novel algorithms and creating synthetic datasets for face and body pose recognition "in the wild," specifically applied to cockpit emergency access systems in the automotive industry.
         </p>
+    </section>
+
+    <section id="experience">
+        <h2>Research & Experience</h2>
+        
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Ph.D. Researcher</div>
+                <div class="entry-date">2023 - Present</div>
+            </div>
+            <div class="entry-org">Politecnico di Torino / Stellantis</div>
+            <ul>
+                <li>Developing a framework for reliable subject identification using multimodal AI (face and gait recognition) for feature fusion.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Visiting Researcher</div>
+                <div class="entry-date">Oct 2025 - Mar 2026</div>
+            </div>
+            <div class="entry-org">Queen's University, School of Computing</div>
+            <ul>
+                <li>Researched biometric face recognition and Human Activity Recognition (HAR), including multimodal dataset collection.</li>
+            </ul>
+        </div>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Ph.D. Internship</div>
+                <div class="entry-date">Mar 2024 - Feb 2025</div>
+            </div>
+            <div class="entry-org">Centro Ricerche Fiat S.C.p.A, Orbassano</div>
+            <ul>
+                <li>Developed Deep Learning algorithms and presented research progress to senior industry researchers.</li>
+            </ul>
+        </div>
     </section>
 
     <section id="education">
         <h2>Education</h2>
-        <div class="item">
-            <div class="item-title">Ph.D. in Computer and Control Engineering <span>Expected: Oct. 2026</span></div>
-            [span_5](start_span)<div class="item-meta">Politecnico di Torino, Italy[span_5](end_span)</div>
+        
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">Ph.D. in Computer and Control Engineering</div>
+                <div class="entry-date">Expected Oct 2026</div>
+            </div>
+            <div class="entry-org">Politecnico di Torino, Italy</div>
         </div>
-        <div class="item">
-            <div class="item-title">M.Sc. in Computer Engineering <span>Oct. 2023</span></div>
-            <div class="item-meta">Politecnico di Torino, Italy | [span_6](start_span)Grade: 105/110[span_6](end_span)</div>
-            [span_7](start_span)<p>Thesis: Evaluating Deep Learning-based Human Pose Estimation Techniques for Performance Analysis in Tennis[span_7](end_span)</p>
-        </div>
-        <div class="item">
-            <div class="item-title">B.Sc. in Computer Engineering <span>July 2021</span></div>
-            <div class="item-meta">Politecnico di Torino, Italy | [span_8](start_span)Grade: 92/110[span_8](end_span)</div>
-        </div>
-    </section>
 
-    <section id="experience">
-        <h2>Research & Industry Experience</h2>
-        <div class="item">
-            <div class="item-title">Ph.D. Researcher <span>2023 - Present</span></div>
-            [span_9](start_span)<div class="item-meta">Politecnico di Torino / Stellantis[span_9](end_span)</div>
-            <ul>
-                [span_10](start_span)<li>Developing a framework for reliable subject identification in the wild using multimodal AI (face and gait recognition)[span_10](end_span).</li>
-            </ul>
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">M.Sc. in Computer Engineering</div>
+                <div class="entry-date">Oct 2023</div>
+            </div>
+            <div class="entry-org">Politecnico di Torino, Italy | Grade: 105/110</div>
+            <p>Thesis: Evaluating Deep Learning-based Human Pose Estimation Techniques for Performance Analysis in Tennis</p>
         </div>
-        <div class="item">
-            <div class="item-title">Visiting Researcher <span>Oct. 2025 - Mar. 2026</span></div>
-            [span_11](start_span)<div class="item-meta">Queen's University, School of Computing[span_11](end_span)</div>
-            <ul>
-                [span_12](start_span)<li>Worked on biometric face recognition systems and Human Activity Recognition (HAR)[span_12](end_span).</li>
-            </ul>
-        </div>
-        <div class="item">
-            <div class="item-title">Ph.D. Internship <span>2024 - 2025</span></div>
-            [span_13](start_span)<div class="item-meta">Centro Ricerche Fiat S.C.p.A, Orbassano[span_13](end_span)</div>
-            <ul>
-                [span_14](start_span)<li>Developed deep learning algorithms and presented research to senior industry experts[span_14](end_span).</li>
-            </ul>
+
+        <div class="entry">
+            <div class="entry-header">
+                <div class="entry-title">B.Sc. in Computer Engineering</div>
+                <div class="entry-date">July 2021</div>
+            </div>
+            <div class="entry-org">Politecnico di Torino, Italy | Grade: 92/110</div>
         </div>
     </section>
 
     <section id="publications">
-        <h2>Publications & Patents</h2>
-        <div class="item">
-            [span_15](start_span)<strong>Multimodal Fusion of Face and Gait for Person Identification in Automotive Applications</strong>[span_15](end_span)<br>
-            IEEE Internet of Things Journal, 2026.
+        <h2>Selected Publications</h2>
+        <div class="entry">
+            <strong>Multimodal Fusion of Face and Gait for Person Identification in Automotive Applications</strong><br>
+            IEEE Internet of Things Journal, 2026. DOI: 10.1109/JIOT.2025.3631488
         </div>
-        <div class="item">
-            [span_16](start_span)<strong>Analyzing the performance of Deep Learning-based techniques for Human Pose Estimation</strong>[span_16](end_span)<br>
-            Proc. IEEE STAR, July 2024.
+        <div class="entry">
+            <strong>Analyzing the performance of Deep Learning-based techniques for Human Pose Estimation</strong><br>
+            Proc. IEEE STAR, July 2024. DOI: 10.1109/STAR62027.2024.10635956
         </div>
-        <div class="item">
-            [span_17](start_span)<strong>Patent: Procedimento per attivare una funzione di un veicolo mediante dati biometrici</strong>[span_17](end_span)<br>
-            Application No. 102024000016717, July 2024.
+        <div class="entry">
+            <strong>Performance evaluation of 3D Human Pose Estimation algorithms for skeleton-based gait recognition</strong><br>
+            IEEE CISM, 2025.
         </div>
     </section>
 
     <section id="skills">
         <h2>Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Programming</h3>
-                [span_18](start_span)<span class="tag">Python</span> <span class="tag">C++</span> <span class="tag">JavaScript</span> <span class="tag">MATLAB</span>[span_18](end_span)
+        <div class="entry">
+            <div class="entry-org">Programming</div>
+            <div class="skills-container">
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">C++</div>
+                <div class="skill-tag">JavaScript (React/Node)</div>
+                <div class="skill-tag">MATLAB</div>
+                <div class="skill-tag">Java/Kotlin</div>
             </div>
-            <div class="skill-category">
-                <h3>Tools</h3>
-                [span_19](start_span)<span class="tag">TensorFlow</span> <span class="tag">PyTorch</span> <span class="tag">SQL</span> <span class="tag">LaTeX</span>[span_19](end_span)
-            </div>
-            <div class="skill-category">
-                <h3>Languages</h3>
-                [span_20](start_span)<span class="tag">English (C2)</span> <span class="tag">Italian (Native)</span>[span_20](end_span)
+        </div>
+        <div class="entry" style="margin-top: 15px;">
+            <div class="entry-org">Tools & AI</div>
+            <div class="skills-container">
+                <div class="skill-tag">TensorFlow</div>
+                <div class="skill-tag">PyTorch</div>
+                <div class="skill-tag">SQL</div>
+                <div class="skill-tag">LaTeX</div>
             </div>
         </div>
     </section>
